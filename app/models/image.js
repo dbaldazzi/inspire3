@@ -8,8 +8,7 @@ export default class Image {
 
   get Template() {
     return `
-    <div class="container-fluid" 
-    <img src="${this.url}
+    <img src="${this.url}">
     `
   }
 }

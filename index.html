@@ -7,26 +7,43 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Inspire</title>
 	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body id="bg-image">
-	<div id="weather">
-		Your Weather Template
+<body class="container-fluid" id="bg-image">
+	<div class="row">
+		<div class="col-8">
+		</div>
+		<div class="col-4">
+			<div id="weather">
+				Your Weather Template
+			</div>
+		</div>
 	</div>
-
-	<div id="quote">
-		The Quote
+	<div class="row">
+		<div class="col-4">
+		</div>
+		<div class="col-4">
+			<div id="quote">
+				The Quote
+			</div>
+			<div class="col-4">
+			</div>
+		</div>
 	</div>
-
-	<div>
-		A Todo List
-		<div id="todo-error"></div>
-		<form onsubmit=""></form>
-		<div id="todos"></div>
-	</div>
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
-	<script type="module" src="app/main.js"></script>
+	<div class="row">
+		<div class="col-12 vh-40">
+			<div class="row">
+				<div class="col-12">
+					A Todo List
+					<div id="todo-error"></div>
+					<form onsubmit=""></form>
+					<div id="todos"></div>
+				</div>
+			</div>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+			<script type="module" src="app/main.js"></script>
 </body>
 
 </html>

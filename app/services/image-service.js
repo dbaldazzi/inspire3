@@ -8,21 +8,23 @@ const imgApi = axios.create({
 
 let _state = {
 	image: []
+
 }
 let _subscribers = {
 	image: []
+
 }
 
 function _setState(propName, data) {
 	_state[propName] = data
-	_subscribers[propName].forEach(fn => fn())
+	_subscribers[propName].forEach(fn => fn());
 }
 
 
 //TODO create methods to retrieve data trigger the update window when it is complete
 export default class ImageService {
-	get Image() {
-		return _state.image
+	get ApiImage() {
+		return _state.apiImage
 	}
 
 	addsubscriber(prop, fn) {
@@ -33,7 +35,15 @@ export default class ImageService {
 		imgApi.get().then(res => {
 			_setState('img', new Image(res.data))
 		})
-			.catch(err => _setState('error', err.response.data))
+			.catch(err => console.error(err))
 	}
 }
+
+
+
+
+
+
+
+
 

@@ -14,7 +14,34 @@ let _subscriber = {
 	quote: []
 }
 
+function _setState(propName, data) {
+	_state[propName] = data
+	_subscriber[propName].forEach(fn => fn())
+}
+
+
 //TODO create methods to retrieve data trigger the update window when it is complete
 export default class QuoteService {
+
+	get Quote() {
+		return _state.quote
+	}
+
+	addsubscriber(prop, fn) {
+		_subscriber[prop].push(fn)
+	}
+
+	getQuote() {
+		_quoteApi.get().then(res => {
+			_setState('quote', new Quote(res.data))
+		})
+			.catch(err => _setState('error', err.response.data))
+	}
+
+
+
+
+
+
 
 }
