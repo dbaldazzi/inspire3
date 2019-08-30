@@ -1,5 +1,6 @@
 export default class Weather {
   constructor(data) {
+    this.id = data.id
     console.log('[RAW WEATHER API DATA]', data);
     //NOTE Have you ever wanted to know the temperature measured in kelvin? 
     //      That is what this data returns! data.main.temp is the temperature in Kelvin
