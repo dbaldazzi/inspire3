@@ -6,4 +6,20 @@ export default class Quote {
     this.body = data.body
 
   }
+
+  Get Template() {
+    return `
+    <div class="card"> 
+    <div class="card-body"> 
+    <h3 class="card-title">${this.author}</h3>
+    <p class="card-text">${this.body}</p> 
+    
+    
+    
+    `
+  }
+
+
+
+
 }
