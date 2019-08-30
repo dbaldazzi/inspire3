@@ -4,4 +4,11 @@ export default class Image {
     this.url = data.url
     this.large_url = data.large_url
   }
+
+
+  get Template {
+    return `
+    <img src="${this.url}
+    `
+  }
 }
