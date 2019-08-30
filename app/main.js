@@ -6,7 +6,9 @@ class App {
   constructor() {
     this.controllers = {
       weatherController: new WeatherController(),
-      todoController: new TodoController()
+      todoController: new TodoController(),
+      imageController: new ImageController(),
+      quoteController: new QuoteController()
     }
   }
 }

@@ -1,4 +1,4 @@
-export default class todo {
+export default class Todo {
   constructor(data) {
 
   }

@@ -1,3 +1,5 @@
+import Todo from "../models/todo.js";
+
 //NOTE your service is all set up for the observer pattern but there is still work to be done
 
 // @ts-ignore
