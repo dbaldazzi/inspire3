@@ -8,7 +8,8 @@ export default class Image {
 
   get Template() {
     return `
-    <img src="${this.url}">
+    <iframe style="background-image: url('${this.url}') background-repeat: no-repeat> 
+    </div> 
     `
   }
 }

@@ -6,44 +6,54 @@ const imgApi = axios.create({
 	timeout: 3000
 });
 
+imgApi.get('').then(res => {
+	console.log("imageservice", res.data)
+})
+
 let _state = {
-	image: []
-
+	image: {},
+	imgApi: {}
 }
+
 let _subscribers = {
-	image: []
-
+	image: [],
+	imgApi: []
 }
 
-function _setState(propName, data) {
-	_state[propName] = data
-	_subscribers[propName].forEach(fn => fn());
+function _setState(prop, data) {
+	_state[prop] = data
+	_subscribers[prop].forEach(fn => fn())
 }
 
 
 //TODO create methods to retrieve data trigger the update window when it is complete
 export default class ImageService {
-	get ApiImage() {
-		return _state.apiImage
+	get imgApi() {
+		return _state.imgApi
 	}
 
 	addsubscriber(prop, fn) {
 		_subscribers[prop].push(fn)
 	}
 
+
 	getImage() {
+		console.log("image from imageservice")
 		imgApi.get().then(res => {
-			_setState('img', new Image(res.data))
+			_setState('image', new Image(res.data))
 		})
-			.catch(err => console.error(err))
+
 	}
+
+	// getAllApi() {
+	// 	_apiImage.get()
+	// 		.then(res => {
+	// 			_setState('apiImage', res.data.results)
+	// 			console.log(res.data.results)
+	// 		})
+	// }
+
+
+
 }
-
-
-
-
-
-
-
-
 

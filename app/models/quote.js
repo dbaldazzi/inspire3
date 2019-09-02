@@ -7,15 +7,14 @@ export default class Quote {
 
   }
 
-  Get Template() {
+  get Template() {
     return `
     <div class="card"> 
     <div class="card-body"> 
     <h3 class="card-title">${this.author}</h3>
     <p class="card-text">${this.body}</p> 
-    
-    
-    
+    </div> 
+    </div> 
     `
   }
 

@@ -7,11 +7,13 @@ const _quoteApi = axios.create({
 });
 
 let _state = {
-	quote: []
+	quote: [],
+	myQuote: []
 }
 
 let _subscriber = {
-	quote: []
+	quote: [],
+	myQuote: []
 }
 
 function _setState(propName, data) {
@@ -32,6 +34,7 @@ export default class QuoteService {
 	}
 
 	getQuote() {
+		console.log("quote of the day from service")
 		_quoteApi.get().then(res => {
 			_setState('quote', new Quote(res.data))
 		})

@@ -3,7 +3,8 @@ import QuoteService from "../services/quote-service.js";
 let _quoteService = new QuoteService()
 
 function drawquote() {
-  document.getElementById("quote").innerHTML = _quoteService.quote.Template
+  console.log("quote of the day", _quoteService.Quote)
+  document.getElementById('quote').innerHTML = _quoteService.Quote.Template
 }
 
 //TODO Create methods for constructor, and rendering the quote to the page 
@@ -14,23 +15,23 @@ export default class QuoteController {
     _quoteService.getQuote()
   }
 
+  getQoute() {
+    event.preventDefault()
+  }
+
   addQuote(q) {
     q.preventDefault()
     let form = q.target
     let quote = {
 
-
-
     }
-    _quoteService.addQuote(quote)
+
+
+
+
+
+
   }
-
-
-
-
-
-
-
 
 
 }

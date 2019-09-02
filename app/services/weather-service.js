@@ -7,11 +7,13 @@ const weatherApi = axios.create({
 });
 
 let _state = {
-	weather: {}
+	weather: {},
+	myWeather: {}
 }
 
 let _subscribers = {
-	weather: []
+	weather: [],
+	myWeather: []
 }
 
 function _setState(prop, data) {
@@ -19,6 +21,11 @@ function _setState(prop, data) {
 	_subscribers[prop].forEach(fn => fn());
 }
 
+
+function fahrenheit(kelvin) {
+	let temp = (9 / 5 * (kelvin - 273) + 32)
+	console.log("the temp in f", fahrenheit)
+}
 
 export default class WeatherService {
 	get Weather() {
@@ -35,4 +42,5 @@ export default class WeatherService {
 			_setState('weather', new Weather(res.data))
 		})
 	}
+
 }
