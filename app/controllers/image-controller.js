@@ -4,11 +4,9 @@ const _is = new ImageService()
 
 
 function _drawImage() {
-  console.log("imagecontroller")
-  // let image = _is.imgApi
-  // let template = '<div>'
+  console.log("imagecontroller", _is.imgApi)
   document.getElementById("bg-image").innerHTML = _is.imgApi.template
-  window.onload = _drawImage;
+
 }
 
 //TODO Create methods for constructor, and rendering the image to the page 

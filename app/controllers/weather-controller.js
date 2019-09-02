@@ -1,5 +1,5 @@
 import WeatherService from "../services/weather-service.js";
-import Weather from "../models/weather.js";
+//import Weather from "../models/weather.js";
 
 var _weatherService = new WeatherService()
 
