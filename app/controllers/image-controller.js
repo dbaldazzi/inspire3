@@ -4,8 +4,8 @@ const _is = new ImageService()
 
 
 function _drawImage() {
-  console.log("imagecontroller", _is.imgApi)
-  document.getElementById("bg-image").innerHTML = _is.imgApi.template
+  console.log("imagecontroller", _is.image)
+  document.getElementById("bg-image").innerHTML = _is.image.Template
 
 }
 
@@ -22,13 +22,13 @@ export default class ImageController {
   }
 
 
-  getimgApi(url) {
+  getimgApi() {
     _is.imgApi
-
+    console.log("image from getimage in controller", this.getimgApi)
   }
 
-  getImage(url) {
-    _is.getImage()
+  getImage() {
+    event.preventDefault()
   }
 
 }

@@ -3,14 +3,15 @@ export default class Image {
     this.id = data.id
     this.url = data.url
     this.large_url = data.large_url
+    console.log("from image constructor", data.large_url)
   }
 
 
   get Template() {
     return `
-    <div class="background-image">
-    <iframe src="${this.large_url}"></iframe> 
+    <img src="${this.large_url}" background-size: contain; > 
     </div> 
-    `
+     `
+
   }
 }

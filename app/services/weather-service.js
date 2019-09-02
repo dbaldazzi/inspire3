@@ -22,10 +22,14 @@ function _setState(prop, data) {
 }
 
 
-function fahrenheit(kelvin) {
-	let temp = (9 / 5 * (kelvin - 273) + 32)
-	console.log("the temp in f", fahrenheit)
+function temp() {
+	let kTemp = this.kelvin
+	let kToF = (9 / 5 * (kTemp - 273) + 32)
+
+	return kToF
+
 }
+
 
 export default class WeatherService {
 	get Weather() {

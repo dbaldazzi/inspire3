@@ -6,9 +6,9 @@ const imgApi = axios.create({
 	timeout: 3000
 });
 
-imgApi.get('').then(res => {
-	console.log("imageservice", res.data)
-})
+//imgApi.get('').then(res => {
+//console.log("imageservice", res.data)
+//})
 
 let _state = {
 	image: {},
@@ -32,6 +32,10 @@ export default class ImageService {
 		return _state.imgApi
 	}
 
+	get image() {
+		return _state.image
+	}
+
 	addsubscriber(prop, fn) {
 		_subscribers[prop].push(fn)
 	}
@@ -41,6 +45,7 @@ export default class ImageService {
 		console.log("image from imageservice")
 		imgApi.get().then(res => {
 			_setState('image', new Image(res.data))
+			console.log("imageservice", res.data)
 		})
 
 	}
