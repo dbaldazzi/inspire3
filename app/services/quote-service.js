@@ -38,7 +38,6 @@ export default class QuoteService {
 		_quoteApi.get().then(res => {
 			_setState('quote', new Quote(res.data))
 		})
-			.catch(err => _setState('error', err.response.data))
 	}
 
 

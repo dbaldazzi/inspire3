@@ -1,9 +1,10 @@
 export default class Quote {
   constructor(data) {
-    this.id = data.id
+    console.log("raw quote data", data)
+    this.id = data.quote.id
     this.url = data.url
-    this.author = data.author
-    this.body = data.body
+    this.author = data.quote.author
+    this.body = data.quote.body
 
   }
 
