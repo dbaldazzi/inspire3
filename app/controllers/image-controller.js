@@ -5,7 +5,7 @@ const _is = new ImageService()
 
 function _drawImage() {
   console.log("imagecontroller", _is.image)
-  document.getElementById("bg-image").innerHTML = _is.image.Template
+  document.body.style.backgroundImage = `url('${_is.image.large_url}')`
 
 }
 

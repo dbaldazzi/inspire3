@@ -11,7 +11,7 @@ export default class Weather {
 
     this.city = data.name
     this.kelvin = data.main.temp
-    this.fahrenheit = data.fahrenheit
+    this.fahrenheit = data.fahrenheit || this.kelvin * (9 / 5) - 459.67
   }
 
 
@@ -20,7 +20,7 @@ export default class Weather {
     <div class="card">
     <div class="card-body">
     <h5 class="card-title">${this.city}</h5>
-    <h1 class="card-text">${this.kelvin}</h1>
+    <h1 class="card-text">${this.fahrenheit.toFixed(2)}</h1>
     </div> 
     </div>
     `

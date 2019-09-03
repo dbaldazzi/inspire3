@@ -6,6 +6,7 @@ const weatherApi = axios.create({
 	timeout: 3000
 });
 
+
 let _state = {
 	weather: {},
 	myWeather: {}
@@ -22,11 +23,10 @@ function _setState(prop, data) {
 }
 
 
-function temp() {
-	let kTemp = this.kelvin
-	let kToF = (9 / 5 * (kTemp - 273) + 32)
-
-	return kToF
+function toFahrenheit() {
+	let fahrenheit = (9 / 5 * (this.kelvin - 273) + 32)
+	console.log("the temp in f is", fahrenheit)
+	//return fahrenheit
 
 }
 
@@ -47,5 +47,6 @@ export default class WeatherService {
 		})
 			.catch(err => console.error(err))
 	}
+
 
 }

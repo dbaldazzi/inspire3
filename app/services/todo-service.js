@@ -4,57 +4,92 @@ import Todo from "../models/todo.js";
 
 // @ts-ignore
 const todoApi = axios.create({
-	baseURL: 'https://bcw-sandbox.herokuapp.com/api/jake/todos/',
+	baseURL: 'https://bcw-sandbox.herokuapp.com/api/david/todos/',
 	timeout: 3000
 });
+
+// @ts-ignore
+// let currentTodosApi = axios.create({
+// 	baseURL: 'http://bcw-sandbox.herokuapp.com/api/david/todos'
+// })
 
 let _state = {
 	todos: [],
 	apiTodos: [],
 	myTodos: [],
-	error: {},
-	currentTodo: {}
+	error: [],
+	currentTodos: []
 }
 let _subscribers = {
 	todos: [],
 	apiTodos: [],
 	myTodos: [],
 	error: [],
-	currentTodo: []
+	currentTodos: []
 }
 
-function _setState(prop, data) {
-	_state[prop] = data
-	_subscribers[prop].forEach(fn => fn())
+function _setState(propName, data) {
+	_state[propName] = data
+	_subscribers[propName].forEach(fn => fn())
 }
 
 export default class TodoService {
+
+	setActive(_id) {
+		let todo = _state.myTodos.find(t => t._id == _id)
+		_setState('currentTodos', todo)
+	}
+
+	addSubscriber(propName, fn) {
+		_subscribers[propName].push(fn)
+	}
+
+	get apiTodos() {
+		return _state.apiTodos.map(t => new Todo(t))
+	}
+
+	// get currentTodos() {
+	// 	return new Todo(_state.currentTodos)
+	// }
+
+	// get myTodos() {
+	// 	return _state.myTodos
+	// }
+
 	get TodoError() {
 		return _state.error
 	}
 
-	addSubscriber(prop, fn) {
-		_subscribers[prop].push(fn)
-	}
+	// getMyTodos() {
+	// 	currentTodosApi.get()
+	// 		.then(res => {
+	// 			console.log(res.data);
+	// 			_setState('myTodos', res.data.data)
+	// 		})
+	// }
 
-	getTodos() {
-		console.log("Getting the Todo List")
+	// getMyTodosById() {
+	// 	currentTodosApi.get(_state.currentTodos._id)
+	// 		.then(res => {
+	// 			_setState('currentTodos', res.data.data)
+	// 		})
+	// }
+
+	getApiTodos() {
 		todoApi.get()
 			.then(res => {
-				//TODO Handle this response from the server
-				_setState('todos', res.data.results)
+				_setState('apiTodos', res.data.data)
 			})
-			.catch(err => _setState('error', err.response.data))
 	}
 
-	getMyTodos() {
-		_todoApi.get()
-			.then(res => {
-				let data = res.data.map(t => new todos(t))
-				_setState('myTodos', data)
-				console.log(data)
-			})
+
+
+
+	get Todos() {
+		return _state.todos
 	}
+
+
 
 	addTodo(todo) {
 		todoApi.post('', _state.todos)
@@ -71,18 +106,18 @@ export default class TodoService {
 		//TODO Make sure that you found a todo, 
 		//		and if you did find one
 		//		change its completed status to whatever it is not (ex: false => true or true => false)
+	}
 
-		todoApi.put(todoId, todo)
+	editTodos(update) {
+		todoApi.put(_state.todos._id, update)
 			.then(res => {
-				//TODO do you care about this data? or should you go get something else?
+				this.getApiTodos()
+				// 		//TODO do you care about this data? or should you go get something else?
 			})
 			.catch(err => _setState('error', err.response.data))
 	}
 
-	removeTodo(_id) {
-		//TODO Work through this one on your own
-		//		what is the request type
-		//		once the response comes back, what do you need to insure happens?
+	removeTodos() {
 		todoApi.delete(_state.currentTodo._id)
 			.then(res => {
 				let index = _state.currentTodo.findIndex(t => t._id == _state.currentTodo._id)

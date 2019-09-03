@@ -6,20 +6,22 @@ export default class Todo {
     this.description = data.description
     this.completed = data.completed
     this.todo = data.todo
-
+    this.currentTodos = data.currentTodos
   }
 
+
+  //FIXME deleteTodo will need the _id
 
   get Template() {
     return `
   <div class="card">
   <div class="card-body">  
-  <h5 class="card-title">${this.todo}</h5> 
   <p class="card-text">${this.description}</p> 
-  <form>
-  <imput type="text" name="newTodo">
-  <button class="btn btn-success" onclick="app.controller._todocontroller.addtodo()">Add</button> 
-    ${this._id ? ` <button class="btn btn-danger" onclick="app.controller._todoController.deleteToDo()">Delete</button>` : ''}
+  ${this._id ? `<button class="btn btn-danger" onclick="app.controller.todoController.deleteTodo(${this._id})">Delete</button>` : ''}
+  <form> 
+  <input type="text" name="newTodo" id"newTodo'>
+  <button type="submit">Add Todo</button> 
+  </form> 
 </div> 
 </div> 
 `

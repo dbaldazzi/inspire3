@@ -12,7 +12,7 @@
 </head>
 
 <body>
-	<div class="container-fluid vh-100">
+	<div class="container-fluid vh-100" id="bg-image">
 		<div class="row weather">
 			<div class="col-10">
 			</div>
@@ -23,7 +23,7 @@
 		</div>
 		<div class="row">
 			<div class="col-12">
-				<div id="bg-image">
+				<div>
 				</div>
 			</div>
 		</div>
@@ -31,18 +31,24 @@
 			<div class="col-4">
 				<div id="todo-error">
 					<div id="todos">
+						<form onsubmit="app.controller.todoController.addTodo(event)"></form>
+						<div class="form-group">
+							<label for="name">Todo</label>
+							<input type="text" class="form-control" name="name" placeholder="Todo">
+						</div>
+						<button class="btn btn-success" type="submit">submit</button>
 					</div>
 				</div>
 			</div>
-			<div class="col-4">
-				<div id="quote">
-				</div>
+		</div>
+		<div class="col-4">
+			<div id="quote">
 			</div>
-			<div class="col-4">
-			</div>
-			>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
-			<script type="module" src="app/main.js"></script>
+		</div>
+		<div class="col-4">
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+		<script type="module" src="app/main.js"></script>
 </body>
 
 </html>
