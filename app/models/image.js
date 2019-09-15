@@ -3,7 +3,7 @@ export default class Image {
     this.id = data.id
     this.url = data.url
     this.large_url = data.large_url
-    console.log("from image constructor", data.large_url)
+    //console.log("from image constructor", data.large_url)
   }
 
 

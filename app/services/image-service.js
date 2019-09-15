@@ -42,10 +42,10 @@ export default class ImageService {
 
 
 	getImage() {
-		console.log("image from imageservice")
+		//console.log("image from imageservice")
 		imgApi.get().then(res => {
 			_setState('image', new Image(res.data))
-			console.log("imageservice", res.data)
+			//console.log("imageservice", res.data)
 		})
 
 	}

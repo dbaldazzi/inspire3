@@ -9,7 +9,7 @@ var _weatherService = new WeatherService()
 
 //TODO Complete rendering data to the screen
 function drawWeather() {
-	console.log("THE WEATHER MAN SAYS:", _weatherService.Weather)
+	// console.log("THE WEATHER MAN SAYS:", _weatherService.Weather)
 	document.getElementById('weather').innerHTML = _weatherService.Weather.Template
 
 }

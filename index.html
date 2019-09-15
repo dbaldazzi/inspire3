@@ -31,13 +31,11 @@
 			<div class="col-4">
 				<div id="todo-error">
 					<div id="todos">
-						<form onsubmit="app.controller.todoController.addTodo(event)"></form>
-						<div class="form-group">
-							<label for="name">Todo</label>
-							<input type="text" class="form-control" name="name" placeholder="Todo">
-						</div>
-						<button class="btn btn-success" type="submit">submit</button>
 					</div>
+					<form onsubmit="app.controllers.todoController.newTodos(event)">
+						<input type="text" name="newTodo">
+						<button type="submit">Add Todo</button>
+					</form>
 				</div>
 			</div>
 		</div>

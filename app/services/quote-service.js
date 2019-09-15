@@ -35,7 +35,7 @@ export default class QuoteService {
 	}
 
 	getQuote() {
-		console.log("quote of the day from service")
+		//console.log("quote of the day from service")
 		_quoteApi.get().then(res => {
 			_setState('quote', new Quote(res.data))
 		})

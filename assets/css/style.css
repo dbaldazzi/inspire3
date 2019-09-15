@@ -3,11 +3,12 @@
   font-size: 2em;
 }
 
-.bg-image {
+#bg-image {
+  background-image: image(id="bg-image"); 
   background-size: cover; 
   background-size: contain; 
-  background-image: image(id="bg-image"); 
   background-repeat: no-repeat; 
+  opacity: .5;
 }
 .weather {
   text-align: right; 

@@ -6,7 +6,6 @@ export default class Todo {
     this.description = data.description
     this.completed = data.completed
     this.todo = data.todo
-    this.currentTodos = data.currentTodos
   }
 
 
@@ -14,16 +13,9 @@ export default class Todo {
 
   get Template() {
     return `
-  <div class="card">
-  <div class="card-body">  
-  <p class="card-text">${this.description}</p> 
-  ${this._id ? `<button class="btn btn-danger" onclick="app.controller.todoController.deleteTodo(${this._id})">Delete</button>` : ''}
-  <form> 
-  <input type="text" name="newTodo" id"newTodo'>
-  <button type="submit">Add Todo</button> 
-  </form> 
-</div> 
-</div> 
-`
+  <p class="text">${this.description}</p> 
+  ${this._id ? `<button class="btn btn-danger" onclick="app.controllers.todoController.removeTodo('${this._id}')">Delete</button>` : ''} 
+  `
   }
 }
+{/* <form onsubmit="app.controller.todoController.addTodos(event)"></form> */ }

@@ -1,7 +1,7 @@
 export default class Weather {
   constructor(data) {
     this.id = data.id
-    console.log('[RAW WEATHER API DATA]', data);
+    // console.log('[RAW WEATHER API DATA]', data);
     //NOTE Have you ever wanted to know the temperature measured in kelvin? 
     //      That is what this data returns! data.main.temp is the temperature in Kelvin
 
@@ -17,12 +17,8 @@ export default class Weather {
 
   get Template() {
     return `
-    <div class="card">
-    <div class="card-body">
     <h5 class="card-title">${this.city}</h5>
     <h1 class="card-text">${this.fahrenheit.toFixed(2)}</h1>
-    </div> 
-    </div>
     `
   }
 }
