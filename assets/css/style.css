@@ -4,14 +4,13 @@
 }
 
 #bg-image {
-  background-image: image(id="bg-image"); 
+  background-image: image(id="bg-image");  
   background-size: cover; 
-  background-size: contain; 
   background-repeat: no-repeat; 
-  opacity: .5;
 }
 .weather {
   text-align: right; 
+  color: white;
   z-index: 10000;
   background-position-y: 500;
 
@@ -20,6 +19,7 @@
 .quote {
   text-align: center;
   vertical-align: text-bottom;
+  color: white; 
 
 }
 

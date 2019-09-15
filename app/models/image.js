@@ -9,7 +9,7 @@ export default class Image {
 
   get Template() {
     return `
-    <img src="${this.large_url}" background-size: contain; > 
+    <img src="${this.large_url}" style="background-size: contain, background-repeat: no-repeate;" > 
     </div> 
      `
 
